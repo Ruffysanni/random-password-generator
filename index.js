@@ -32,10 +32,14 @@ function createPasssword(){
 //Create a functio for the copy command
 function copyPassword(){
     passwordBox.select();
-    document.execCommand("copy");
+    navigator.clipboard.writeText(passwordBox.value);
+    //document.execCommand("copy");
 }
 copyPwd.addEventListener("click", function(){
-    copyPassword()
+    copyPassword();
+    setTimeout(function(){
+        passwordBox.value = "";
+    }, 3000)
 })
 
 buttonEl.addEventListener("click", function(){
